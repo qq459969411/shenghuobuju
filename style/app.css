@@ -1,0 +1,69 @@
+*{margin:0;border:none;padding: 0;}
+.container{width: 1680px; height:auto;margin:0 auto}
+a{
+    text-decoration: none;
+}
+.content{
+    position:absolute;
+}
+
+.content .list{
+    width:100%;
+    height: 100%;
+
+}
+
+.content .list p{
+    font-size:44px;
+    color:#fff;
+    position: relative;
+    top:24%;
+    text-align: center;
+    padding:0 2em;
+    text-shadow: 0em 0em 0.5em #333;
+}
+
+
+.mask{
+    position: relative;
+    top:0;
+    left:0;
+    width:100%;
+    height: 100%;
+    background: #000000;
+    background-color: rgba(0, 0, 0, 0.5);
+    /*-webkit-opacity:0.5;*/
+}
+
+.content .list .mp3player{
+    width:100%;
+    height:32px;
+    display: block;
+    position: relative;
+    top:96.7%;
+    text-align: center;
+    -webkit-opacity:0.6;
+}
+
+.content .list .btn-audio{
+    text-align:center;
+    margin: 300px auto;
+    width: 186px;
+    height: 186px;
+    cursor:pointer
+}
+.content .list .btn-audio i{
+    color:#fff;
+    margin:0px auto;
+}
+
+.close{
+    font-weight:90;
+    line-height:60px;
+    margin:0 auto;
+    width:80px;
+    height:80px;
+    display: block;
+    border:1px solid #fff;
+    color: #fff;
+    font-size:100px;}

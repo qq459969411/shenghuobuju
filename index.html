@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="style/app.css" rel="stylesheet"  type="text/css">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" type="application/javascript"></script>
+    <script src="js/jquery.mousewheel.js" type="application/javascript"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            //改变div的高度
+            $(".list").height($(window).height());
+            //改变div的宽度
+            $(".list").width($(window).width());
+            /*var content_height = $('.content').height();
+            var list_height = $('.list').eq(0).height();
+            var t=0;
+            var n=0;
+            var list_n = $('.list').length;
+
+            $(window).mousewheel(function(event){
+                //console.log(event.deltaY);
+                p=$(this).scrollTop();
+                if(t>event.deltaY){
+                    //$('html').animate({scrollTop:list_height+p +"px"},'slow');
+                    timeoutId = $('html').data('timeoutId');
+                    if (timeoutId) {
+                        clearTimeout(timeoutId);
+                    }
+
+                    $('html').data('timeoutId',setTimeout(function(){
+                        $('html').removeData('timeoutId');
+                        $('html')=null;
+                    }, 1000));
+                    console.log(timeoutId);
+
+
+                }else{
+                    //$('html').animate({scrollTop:p-list_height +"px"},'slow');
+
+                }
+                return false;
+            })*/
+        })
+
+    </script>
+    <script type="text/javascript">
+        $(function(){
+            //播放完毕
+            $('#mp3Btn').on('ended', function() {
+                console.log("音频已播放完成");
+                //$('.btn-audio').css({'background':'#fff','background-size':'cover'});
+            })
+            //播放器控制
+            var audio = document.getElementById('mp3Btn');
+            audio.volume = .8;
+
+
+
+
+
+
+
+            $('.btn-audio').click(function() {
+                audio.addEventListener("progress",function(){
+                        $(".fa-spinner").show();
+                    }, false
+                );
+                audio.addEventListener("canplay", function()
+                    {
+                        $(".fa-spinner").css({'display':'none'});
+                    }, false
+                );
+                event.stopPropagation();//防止冒泡
+                if(audio.paused){ //如果当前是暂停状态
+                    //$('.btn-audio').css({'background':'#fff','background-size':'cover'});
+                    $('.fa-pause').css({'display':'block'});
+
+                    $('.fa-play').css({'display':'none'});
+                    $('.fa-spinner').css({'display':'none'});
+                    audio.play(); //播放
+                    return;
+                }else{//当前是播放状态
+                    //$('.btn-audio').css({'background':'#000','background-size':'cover'});
+                    $('.btn-audio .fa-play').css({'display':'block'});
+                    $('.btn-audio .fa-pause').css({'display':'none'});
+                    audio.pause(); //暂停
+                }
+            });
+        })
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+            <div class="list" id="item-1" style="background:url(images/img1.jpg); background-size:100%">
+                <div class="mask">
+                    <p><!--<a href="#" class="close">×</a><br/>-->
+                        和其他的页面不同的地方在于，页面需要承载多个不同的非标准标点符号，为了将信息准确的传达，设计师巧妙地使用留白来控制符号之间的间距，确保整体的优雅性，又保证了信息的传达。
+                    </p>
+                    <div class="btn-audio ">
+                        <i class="fa fa-play fa-5x"></i>
+                        <i class="fa fa-spinner fa-pulse fa-5x" style="display:none"></i>
+                        <i class="fa fa-pause fa-5x" style="display:none"></i>
+                        <audio id="mp3Btn"><source src="mp3/youwere.mp3" type="audio/mpeg" /></audio>
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="list" id="item-2" style="background:url(images/img2.jpg); background-size: 100%">
+                <div class="mask">
+                    <audio class="mp3player" src="mp3/624.mp3" controls="controls">
+                    您的浏览器不支持 audio 标签。
+                    </audio>
+                    <p>他改变了中国，他又改了回来。</p>
+                </div>
+            </div>
+            <div class="list" id="item-3" style="background:url(images/img1.jpg); background-size: 100%">
+                <p>我一路向北离开有你的季节。</p>
+            </div>
+            <div class="list" id="item-4" style="background:url(images/img2.jpg); background-size: 100%">
+                <p>后视镜里的世界，越来越远的道别。</p>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>
